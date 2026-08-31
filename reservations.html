@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Glen's Bakehouse - Book a Table</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -125,10 +123,10 @@
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden relative z-0">
-<canvas class="fixed inset-0 z-[-1] pointer-events-none" height="2257" id="stardust-canvas" width="1280"></canvas>
+<canvas class="fixed inset-0 z-[-1] pointer-events-none" height="2260" id="stardust-canvas" width="1280"></canvas>
 <div class="fixed inset-0 w-full h-full pointer-events-none z-[-2]">
 <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
-<div id="threejs-container-ANIMATION_NEW" style="width:100%;height:100%"></div>
+<div id="threejs-container-ANIMATION_NEW" style="width:100%;height:100%"><canvas width="1280" height="2260" style="display: block; width: 1280px; height: 2260px;"></canvas></div>
 <script>
 (function() {
   const container = document.getElementById('threejs-container-ANIMATION_NEW');
@@ -233,10 +231,10 @@
 <!-- Main Content -->
 <main class="flex-grow pt-32 relative z-10">
 <!-- Hero & Reservation Section -->
-<section class="relative w-full min-h-[90vh] flex items-center justify-center pt-16 pb-section-gap px-margin-mobile md:px-margin-desktop fade-in-up visible">
+<section class="relative w-full min-h-[90vh] flex items-center justify-center pt-16 pb-section-gap px-margin-mobile md:px-margin-desktop fade-in-up visible pt-32">
 <!-- Background Image with Masking -->
 <div class="absolute inset-0 z-[-1]">
-<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity scroll-color-img grayscale transition-all duration-700" data-alt="A sophisticated, dimly lit bakery interior at night. Warm pendant lights cast soft glows on wooden tables. The atmosphere is intimate, luxurious, and slightly mysterious, following a dark editorial aesthetic. High contrast, sharp details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtfZ6L34Sx8U7y7JMRSAfgN8jT71fBjs5rpJnSFRczAPuLCNsrMBGQymJRvzBKgzU12mdknWatklaAiQiG4g2wXfnxxOeBX48Q4HvLOQrFmXu7xXEnC4baeTNNsqDF92nQMY0kDgmg91R81zaWsQRXp3br7Ariyp4I18DAi2IBug03sU7wIuQ-441YtMUbuc7eKalU-GSUQCCF8k5MhbDOcFNJq3OZ9W-5qAg18EPaK9NpOEoNhSuUpA')"></div>
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity scroll-color-img transition-all duration-700" data-alt="A sophisticated, dimly lit bakery interior at night. Warm pendant lights cast soft glows on wooden tables. The atmosphere is intimate, luxurious, and slightly mysterious, following a dark editorial aesthetic. High contrast, sharp details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtfZ6L34Sx8U7y7JMRSAfgN8jT71fBjs5rpJnSFRczAPuLCNsrMBGQymJRvzBKgzU12mdknWatklaAiQiG4g2wXfnxxOeBX48Q4HvLOQrFmXu7xXEnC4baeTNNsqDF92nQMY0kDgmg91R81zaWsQRXp3br7Ariyp4I18DAi2IBug03sU7wIuQ-441YtMUbuc7eKalU-GSUQCCF8k5MhbDOcFNJq3OZ9W-5qAg18EPaK9NpOEoNhSuUpA')"></div>
 <div class="absolute inset-0 bg-mask-gradient"></div>
 </div>
 <!-- Content Container -->
@@ -252,7 +250,7 @@
 <div class="flex flex-col">
 <label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="date">Date</label>
 <div class="relative">
-<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg transition-colors cursor-pointer" id="date" name="date" required="" type="date"/>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg transition-colors cursor-pointer" id="date" name="date" required="" type="date">
 </div>
 </div>
 <div class="flex flex-col">
@@ -285,15 +283,15 @@
 <!-- Personal Info -->
 <div class="flex flex-col">
 <label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="name">Name</label>
-<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors" id="name" name="name" placeholder="John Doe" required="" type="text"/>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors" id="name" name="name" placeholder="John Doe" required="" type="text">
 </div>
 <div class="flex flex-col">
 <label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="email">Email</label>
-<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors" id="email" name="email" placeholder="john@example.com" required="" type="email"/>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors" id="email" name="email" placeholder="john@example.com" required="" type="email">
 </div>
 <div class="flex flex-col md:col-span-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="phone">Phone</label>
-<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors" id="phone" name="phone" placeholder="+1 (555) 000-0000" required="" type="tel"/>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors" id="phone" name="phone" placeholder="+1 (555) 000-0000" required="" type="tel">
 </div>
 <div class="flex flex-col md:col-span-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="special_requests">Special Requests (Optional)</label>
@@ -310,7 +308,7 @@
 </div>
 </section>
 <!-- Location & Contact Section -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface/80 backdrop-blur-sm max-w-container-max mx-auto w-full border-t border-outline-variant/10 relative z-10 fade-in-up">
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface/80 backdrop-blur-sm max-w-container-max mx-auto w-full border-t border-outline-variant/10 relative z-10 fade-in-up visible">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
 <!-- Contact Info -->
 <div class="space-y-12">
@@ -325,7 +323,7 @@
 <span class="material-symbols-outlined text-primary mt-1" data-icon="location_on">location_on</span>
 <div>
 <h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest mb-1">Address</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">294 Indiranagar Double Road<br/>Bangalore, Karnataka 560038</p>
+<p class="font-body-md text-body-md text-on-surface-variant">294 Indiranagar Double Road<br>Bangalore, Karnataka 560038</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
@@ -347,7 +345,7 @@
 <!-- Map Placeholder -->
 <div class="h-96 w-full bg-surface-container-low border border-outline-variant/20 flex items-center justify-center overflow-hidden relative">
 <!-- Map Image -->
-<div class="absolute inset-0 bg-cover bg-center scroll-color-img grayscale transition-all duration-700 contrast-125" data-alt="A dark-mode styled minimalist map showing city streets. The map uses deep charcoal and muted ash tones. A subtle marker indicates a location. The aesthetic matches a premium, editorial design system." data-location="Bangalore" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAX8oDhStdtKliJ2g-Ae7Q4-Rt8IZebI78rob61koR2ZazTpy7wydUpiMPd-IeA4jcPEpxVKf2gMrMzVd1DIGhy_WtTYSWcOkl45KNxT8T31NounZjp-15VbeHR42PmEXLe52rnubODGVZlnXZsxVSPT-gvlGugl-Y8NO5K-YI5uJVTr3ZrENfthbhQMg_bm-y45sEbNkSxev6YEcdNahj5MKA28OvsUoLEL9TRE3G-NhnllaPun_0fCA')"></div>
+<div class="absolute inset-0 bg-cover bg-center scroll-color-img transition-all duration-700 contrast-125" data-alt="A dark-mode styled minimalist map showing city streets. The map uses deep charcoal and muted ash tones. A subtle marker indicates a location. The aesthetic matches a premium, editorial design system." data-location="Bangalore" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAX8oDhStdtKliJ2g-Ae7Q4-Rt8IZebI78rob61koR2ZazTpy7wydUpiMPd-IeA4jcPEpxVKf2gMrMzVd1DIGhy_WtTYSWcOkl45KNxT8T31NounZjp-15VbeHR42PmEXLe52rnubODGVZlnXZsxVSPT-gvlGugl-Y8NO5K-YI5uJVTr3ZrENfthbhQMg_bm-y45sEbNkSxev6YEcdNahj5MKA28OvsUoLEL9TRE3G-NhnllaPun_0fCA')"></div>
 <div class="absolute inset-0 bg-black/30 mix-blend-multiply"></div>
 </div>
 </div>
@@ -497,4 +495,6 @@
             });
         });
     </script>
+
+
 </body></html>
