@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glen's Bakehouse - Book a Table</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "on-secondary-fixed-variant": "#474746",
+                        "inverse-surface": "#e6e1e1",
+                        "surface-variant": "#363434",
+                        "surface-bright": "#3b3939",
+                        "on-error": "#690005",
+                        "primary-container": "#92908f",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#c4c7c3",
+                        "surface-tint": "#c8c6c5",
+                        "surface": "#141313",
+                        "background": "#141313",
+                        "on-secondary": "#303030",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#5f5e5d",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container": "#211f1f",
+                        "surface-container-lowest": "#0f0e0e",
+                        "on-tertiary": "#32302f",
+                        "on-primary-container": "#2a2a29",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "surface-container-high": "#2b2a2a",
+                        "secondary-container": "#474746",
+                        "tertiary-fixed": "#e6e1df",
+                        "tertiary": "#cac6c3",
+                        "on-primary": "#303030",
+                        "on-tertiary-container": "#2b2928",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-background": "#e6e1e1",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-container-low": "#1d1b1b",
+                        "on-secondary-container": "#b7b5b3",
+                        "secondary-fixed": "#e4e2e0",
+                        "secondary": "#c8c6c5",
+                        "on-primary-fixed": "#1b1c1b",
+                        "on-surface": "#e6e1e1",
+                        "surface-dim": "#141313",
+                        "outline-variant": "#444845",
+                        "surface-container-highest": "#363434",
+                        "error-container": "#93000a",
+                        "primary": "#c8c6c5",
+                        "outline": "#8e918e",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "inverse-on-surface": "#323030",
+                        "primary-fixed": "#e4e2e0",
+                        "tertiary-container": "#93908e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .bg-mask-gradient {
+            background: linear-gradient(to bottom, rgba(20, 19, 19, 0) 0%, rgba(20, 19, 19, 1) 100%);
+        }
+        
+        /* Input autofill override for dark theme */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active{
+            -webkit-box-shadow: 0 0 0 30px theme('colors.surface-container-low') inset !important;
+            -webkit-text-fill-color: theme('colors.on-surface') !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden relative z-0">
+<canvas class="fixed inset-0 z-[-1] pointer-events-none" height="2257" id="stardust-canvas" width="1280"></canvas>
+<div class="fixed inset-0 w-full h-full pointer-events-none z-[-2]">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_NEW" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_NEW');
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  camera.position.z = 50;
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  const threads = [];
+  const threadCount = 10; 
+  const goldenColor = new THREE.Color('#D4A853');
+  const material = new THREE.MeshPhongMaterial({ 
+    color: goldenColor, 
+    emissive: goldenColor,
+    emissiveIntensity: 0.15,
+    shininess: 90,
+    transparent: true,
+    opacity: 0.35 
+  });
+
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4); 
+  scene.add(ambientLight);
+  const pointLight = new THREE.PointLight(0xffffff, 0.8); 
+  pointLight.position.set(20, 20, 50);
+  scene.add(pointLight);
+
+  for (let i = 0; i < threadCount; i++) {
+    const points = [];
+    const segments = 60;
+    const xStart = -120;
+    const xEnd = 120;
+    const yBase = (Math.random() - 0.5) * 80;
+    const freq = 0.03 + Math.random() * 0.07;
+    const amp = 3 + Math.random() * 7;
+    
+    for (let j = 0; j <= segments; j++) {
+      const x = xStart + (xEnd - xStart) * (j / segments);
+      const y = yBase + Math.sin(x * freq) * amp;
+      points.push(new THREE.Vector3(x, y, 0));
+    }
+
+    const curve = new THREE.CatmullRomCurve3(points);
+    // Increased radius for broader threads
+    const geometry = new THREE.TubeGeometry(curve, segments, 0.3 + Math.random() * 0.4, 8, false);
+    const mesh = new THREE.Mesh(geometry, material);
+    
+    scene.add(mesh);
+    threads.push({
+      mesh,
+      yBase,
+      amp,
+      freq,
+      offset: Math.random() * Math.PI * 2
+    });
+  }
+
+  let scrollY = window.scrollY;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    
+    const time = Date.now() * 0.0005; 
+    scrollY = window.scrollY;
+
+    threads.forEach((thread, i) => {
+      thread.mesh.position.y = Math.sin(time + thread.offset) * 1.5;
+      thread.mesh.rotation.x = scrollY * 0.0005 * (i % 2 === 0 ? 1 : -1);
+      thread.mesh.position.z = Math.sin(scrollY * 0.002 + i) * 3;
+    });
+
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  });
+
+  animate();
+})();
+</script>
+</div>
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-white/10 flex justify-between items-center px-margin-desktop py-6 max-w-container-max mx-auto transition-all duration-300">
+<a class="font-display-lg text-headline-sm tracking-widest text-on-background hover:opacity-80 transition-opacity" href="#">GLEN'S BAKEHOUSE</a>
+<div class="hidden md:flex gap-8 items-center"><a class="font-body-md text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">HOME</a><a class="font-body-md text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="menu.html">MENU</a><a class="font-body-md text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">ABOUT</a><a class="font-body-md text-label-caps text-primary border-b-2 border-primary pb-1" href="reservations.html">RESERVATIONS</a></div>
+<button class="hidden md:block bg-surface-variant text-on-surface border border-outline-variant px-6 py-3 font-label-caps tracking-widest hover:bg-surface-container-high transition-colors">BOOK A TABLE</button>
+<button class="md:hidden text-on-background">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 relative z-10">
+<!-- Hero & Reservation Section -->
+<section class="relative w-full min-h-[90vh] flex items-center justify-center pt-16 pb-section-gap px-margin-mobile md:px-margin-desktop fade-in-up visible">
+<!-- Background Image with Masking -->
+<div class="absolute inset-0 z-[-1]">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity scroll-color-img grayscale transition-all duration-700" data-alt="A sophisticated, dimly lit bakery interior at night. Warm pendant lights cast soft glows on wooden tables. The atmosphere is intimate, luxurious, and slightly mysterious, following a dark editorial aesthetic. High contrast, sharp details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtfZ6L34Sx8U7y7JMRSAfgN8jT71fBjs5rpJnSFRczAPuLCNsrMBGQymJRvzBKgzU12mdknWatklaAiQiG4g2wXfnxxOeBX48Q4HvLOQrFmXu7xXEnC4baeTNNsqDF92nQMY0kDgmg91R81zaWsQRXp3br7Ariyp4I18DAi2IBug03sU7wIuQ-441YtMUbuc7eKalU-GSUQCCF8k5MhbDOcFNJq3OZ9W-5qAg18EPaK9NpOEoNhSuUpA')"></div>
+<div class="absolute inset-0 bg-mask-gradient"></div>
+</div>
+<!-- Content Container -->
+<div class="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
+<h1 class="font-display-lg-mobile md:font-display-lg text-primary text-center mb-16 max-w-2xl">
+                    Reserve Your Sanctuary
+                </h1>
+<!-- Reservation Form (Glassmorphism inspired dark card) -->
+<div class="w-full bg-surface-container-low/80 backdrop-blur-sm border border-outline-variant/30 p-8 md:p-12 rounded-DEFAULT shadow-2xl">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-8">
+<!-- Date & Time -->
+<div class="space-y-6 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-gutter">
+<div class="flex flex-col">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="date">Date</label>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg transition-colors cursor-pointer" id="date" name="date" required="" type="date"/>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="time">Time</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg transition-colors appearance-none cursor-pointer" id="time" name="time" required="">
+<option class="bg-surface-container" disabled="" selected="" value="">Select a time</option>
+<option class="bg-surface-container" value="18:00">6:00 PM</option>
+<option class="bg-surface-container" value="18:30">6:30 PM</option>
+<option class="bg-surface-container" value="19:00">7:00 PM</option>
+<option class="bg-surface-container" value="19:30">7:30 PM</option>
+<option class="bg-surface-container" value="20:00">8:00 PM</option>
+<option class="bg-surface-container" value="20:30">8:30 PM</option>
+<option class="bg-surface-container" value="21:00">9:00 PM</option>
+</select>
+</div>
+</div>
+<!-- Guests -->
+<div class="flex flex-col md:col-span-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="guests">Party Size</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg transition-colors appearance-none cursor-pointer" id="guests" name="guests" required="">
+<option class="bg-surface-container" disabled="" selected="" value="">Number of guests</option>
+<option class="bg-surface-container" value="1">1 Guest</option>
+<option class="bg-surface-container" value="2">2 Guests</option>
+<option class="bg-surface-container" value="3">3 Guests</option>
+<option class="bg-surface-container" value="4">4 Guests</option>
+<option class="bg-surface-container" value="5">5 Guests</option>
+<option class="bg-surface-container" value="6+">6+ Guests (Call for large parties)</option>
+</select>
+</div>
+<!-- Personal Info -->
+<div class="flex flex-col">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="name">Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors" id="name" name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="flex flex-col">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="email">Email</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors" id="email" name="email" placeholder="john@example.com" required="" type="email"/>
+</div>
+<div class="flex flex-col md:col-span-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="phone">Phone</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors" id="phone" name="phone" placeholder="+1 (555) 000-0000" required="" type="tel"/>
+</div>
+<div class="flex flex-col md:col-span-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest" for="special_requests">Special Requests (Optional)</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 px-0 font-body-lg text-body-lg placeholder-on-surface-variant/50 transition-colors resize-none" id="special_requests" name="special_requests" placeholder="Anniversary, dietary restrictions, etc." rows="2"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="md:col-span-2 mt-8 flex justify-center">
+<button class="bg-[#787776] hover:bg-primary text-[#0B0A09] font-label-caps text-label-caps uppercase tracking-widest py-4 px-12 transition-colors duration-300 w-full sm:w-auto" type="submit">
+                                Confirm Reservation
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Location & Contact Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface/80 backdrop-blur-sm max-w-container-max mx-auto w-full border-t border-outline-variant/10 relative z-10 fade-in-up">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<!-- Contact Info -->
+<div class="space-y-12">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Find Us</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                            Nestled in the heart of the city, an escape dedicated to nocturnal indulgence and crafted moments.
+                        </p>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="location_on">location_on</span>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest mb-1">Address</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">294 Indiranagar Double Road<br/>Bangalore, Karnataka 560038</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="schedule">schedule</span>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest mb-1">Hours</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Mon - Sun: 7:00 AM - 1:00 AM</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="call">call</span>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest mb-1">Contact</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">+91 80 4112 7730</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Placeholder -->
+<div class="h-96 w-full bg-surface-container-low border border-outline-variant/20 flex items-center justify-center overflow-hidden relative">
+<!-- Map Image -->
+<div class="absolute inset-0 bg-cover bg-center scroll-color-img grayscale transition-all duration-700 contrast-125" data-alt="A dark-mode styled minimalist map showing city streets. The map uses deep charcoal and muted ash tones. A subtle marker indicates a location. The aesthetic matches a premium, editorial design system." data-location="Bangalore" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAX8oDhStdtKliJ2g-Ae7Q4-Rt8IZebI78rob61koR2ZazTpy7wydUpiMPd-IeA4jcPEpxVKf2gMrMzVd1DIGhy_WtTYSWcOkl45KNxT8T31NounZjp-15VbeHR42PmEXLe52rnubODGVZlnXZsxVSPT-gvlGugl-Y8NO5K-YI5uJVTr3ZrENfthbhQMg_bm-y45sEbNkSxev6YEcdNahj5MKA28OvsUoLEL9TRE3G-NhnllaPun_0fCA')"></div>
+<div class="absolute inset-0 bg-black/30 mix-blend-multiply"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest/90 backdrop-blur-md dark:bg-surface-container-lowest/90 w-full py-section-gap px-margin-mobile md:px-margin-desktop mt-section-gap border-t border-outline-variant/10 relative z-10">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="flex flex-col">
+<div class="font-headline-sm text-headline-sm tracking-widest text-primary mb-8 uppercase">
+                    GLEN'S BAKEHOUSE
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    © 2024 GLEN'S BAKEHOUSE. CRAFTING MOMENTS OF INDULGENCE.
+                </p>
+</div>
+<div class="flex flex-wrap gap-8 md:gap-12">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface underline transition-all" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface underline transition-all" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface underline transition-all" href="#">Sustainability</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface underline transition-all" href="#">Careers</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface underline transition-all" href="#">Press Kit</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple script to handle form submission visual feedback
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'CONFIRMING...';
+            btn.classList.add('opacity-80');
+            
+            setTimeout(() => {
+                btn.innerText = 'RESERVATION REQUESTED';
+                btn.classList.replace('bg-[#787776]', 'bg-primary');
+                btn.classList.add('text-background');
+                
+                setTimeout(() => {
+                    this.reset();
+                    btn.innerText = originalText;
+                    btn.classList.replace('bg-primary', 'bg-[#787776]');
+                    btn.classList.remove('text-background', 'opacity-80');
+                }, 3000);
+            }, 1500);
+        });
+
+        // Stardust Particle System
+        const canvas = document.getElementById('stardust-canvas');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        const numStars = 150;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Star {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5; // 0.5px to 2px
+                this.baseAlpha = Math.random() * 0.4 + 0.1; // 0.1 to 0.5
+                this.alpha = this.baseAlpha;
+                this.twinkleSpeed = Math.random() * 0.02 + 0.005; // Different rates
+                this.vx = (Math.random() - 0.5) * 0.2; // Subtle drift
+                this.vy = (Math.random() - 0.5) * 0.2;
+                this.timeOffset = Math.random() * Math.PI * 2;
+            }
+
+            update() {
+                // Twinkling effect using sine wave
+                this.alpha = this.baseAlpha + Math.sin(Date.now() * this.twinkleSpeed + this.timeOffset) * 0.3;
+                if (this.alpha < 0.05) this.alpha = 0.05;
+                if (this.alpha > 0.8) this.alpha = 0.8;
+                
+                // Drifting
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Wrap around edges
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(200, 198, 197, ${this.alpha})`; // using primary/secondary color tones
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < numStars; i++) {
+                stars.push(new Star());
+            }
+        }
+
+        function animateStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let star of stars) {
+                star.update();
+                star.draw();
+            }
+            requestAnimationFrame(animateStars);
+        }
+
+        initStars();
+        animateStars();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+
+            const imgObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('grayscale');
+                    } else {
+                        entry.target.classList.add('grayscale');
+                    }
+                });
+            }, { 
+                rootMargin: '-30% 0px -30% 0px'
+            });
+
+            document.querySelectorAll('.scroll-color-img').forEach(img => {
+                imgObserver.observe(img);
+            });
+        });
+    </script>
+</body></html>

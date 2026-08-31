@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glen's Bakehouse - Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#141313",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "on-secondary": "#303030",
+                        "on-tertiary-container": "#2b2928",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-container-low": "#1d1b1b",
+                        "surface-container-lowest": "#0f0e0e",
+                        "on-primary": "#303030",
+                        "secondary-container": "#474746",
+                        "primary-fixed": "#e4e2e0",
+                        "surface-dim": "#141313",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-background": "#e6e1e1",
+                        "primary": "#c8c6c5",
+                        "tertiary": "#cac6c3",
+                        "inverse-primary": "#5f5e5d",
+                        "tertiary-fixed": "#e6e1df",
+                        "on-primary-container": "#2a2a29",
+                        "outline-variant": "#444845",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "on-tertiary": "#32302f",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e6e1e1",
+                        "surface-variant": "#363434",
+                        "secondary": "#c8c6c5",
+                        "primary-container": "#92908f",
+                        "outline": "#8e918e",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#363434",
+                        "secondary-fixed": "#e4e2e0",
+                        "surface-tint": "#c8c6c5",
+                        "tertiary-container": "#93908e",
+                        "surface-container": "#211f1f",
+                        "on-primary-fixed": "#1b1c1b",
+                        "surface-container-high": "#2b2a2a",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#b7b5b3",
+                        "inverse-on-surface": "#323030",
+                        "on-surface-variant": "#c4c7c3",
+                        "surface-bright": "#3b3939",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface": "#141313",
+                        "on-surface": "#e6e1e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .organic-mask-1 {
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="black" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.1,-46.3C90.4,-33.5,96,-18,94.9,-2.9C93.8,12.2,86,26.9,76,39.6C66,52.3,53.8,63,40.1,70.5C26.4,78,11.2,82.3,-3.8,81.3C-18.8,80.3,-33.6,74,-46.4,65C-59.2,56,-70,44.3,-77.8,30.6C-85.6,16.9,-90.4,1.2,-87.9,-13.4C-85.4,-28,-75.6,-41.5,-63.9,-51.9C-52.2,-62.3,-38.6,-69.6,-24.8,-75C-11,-80.4,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)"/></svg>');
+            mask-size: cover;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+        .organic-mask-2 {
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="black" d="M39.9,-65.7C54.1,-58.5,69.7,-51.7,78.2,-39.7C86.7,-27.7,88.1,-10.5,84.7,5.5C81.3,21.5,73.1,36.3,62,48.2C50.9,60.1,37,69.1,21.8,74.5C6.6,79.9,-9.9,81.7,-24.5,77.5C-39.1,73.3,-51.8,63.1,-62.3,50.7C-72.8,38.3,-81.1,23.7,-84.6,8.2C-88.1,-7.3,-86.8,-23.7,-79.3,-37.5C-71.8,-51.3,-58.1,-62.5,-43.3,-69.3C-28.5,-76.1,-12.6,-78.5,1.5,-80.4C15.6,-82.3,31.3,-83.7,39.9,-65.7Z" transform="translate(100 100)"/></svg>');
+            mask-size: cover;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden relative z-0">
+<div class="fixed inset-0 w-full h-full pointer-events-none z-0">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_NEW" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_NEW');
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  camera.position.z = 50;
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  const threads = [];
+  const threadCount = 10; 
+  const goldenColor = new THREE.Color('#D4A853');
+  const material = new THREE.MeshPhongMaterial({ 
+    color: goldenColor, 
+    emissive: goldenColor,
+    emissiveIntensity: 0.15,
+    shininess: 90,
+    transparent: true,
+    opacity: 0.35 
+  });
+
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4); 
+  scene.add(ambientLight);
+  const pointLight = new THREE.PointLight(0xffffff, 0.8); 
+  pointLight.position.set(20, 20, 50);
+  scene.add(pointLight);
+
+  for (let i = 0; i < threadCount; i++) {
+    const points = [];
+    const segments = 60;
+    const xStart = -120;
+    const xEnd = 120;
+    const yBase = (Math.random() - 0.5) * 80;
+    const freq = 0.03 + Math.random() * 0.07;
+    const amp = 3 + Math.random() * 7;
+    
+    for (let j = 0; j <= segments; j++) {
+      const x = xStart + (xEnd - xStart) * (j / segments);
+      const y = yBase + Math.sin(x * freq) * amp;
+      points.push(new THREE.Vector3(x, y, 0));
+    }
+
+    const curve = new THREE.CatmullRomCurve3(points);
+    // Increased radius for broader threads
+    const geometry = new THREE.TubeGeometry(curve, segments, 0.3 + Math.random() * 0.4, 8, false);
+    const mesh = new THREE.Mesh(geometry, material);
+    
+    scene.add(mesh);
+    threads.push({
+      mesh,
+      yBase,
+      amp,
+      freq,
+      offset: Math.random() * Math.PI * 2
+    });
+  }
+
+  let scrollY = window.scrollY;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    
+    const time = Date.now() * 0.0005; 
+    scrollY = window.scrollY;
+
+    threads.forEach((thread, i) => {
+      thread.mesh.position.y = Math.sin(time + thread.offset) * 1.5;
+      thread.mesh.rotation.x = scrollY * 0.0005 * (i % 2 === 0 ? 1 : -1);
+      thread.mesh.position.z = Math.sin(scrollY * 0.002 + i) * 3;
+    });
+
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  });
+
+  animate();
+})();
+</script>
+</div>
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-white/10 flex justify-between items-center px-margin-desktop py-6 max-w-container-max mx-auto transition-all duration-300">
+<a class="font-display-lg text-headline-sm tracking-widest text-on-background hover:opacity-80 transition-opacity" href="#">GLEN'S BAKEHOUSE</a>
+<div class="hidden md:flex gap-8 items-center"><a class="font-body-md text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">HOME</a><a class="font-body-md text-label-caps text-primary border-b-2 border-primary pb-1" href="menu.html">MENU</a><a class="font-body-md text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">ABOUT</a><a class="font-body-md text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="reservations.html">RESERVATIONS</a></div>
+<button class="hidden md:block bg-surface-variant text-on-surface border border-outline-variant px-6 py-3 font-label-caps tracking-widest hover:bg-surface-container-high transition-colors">BOOK A TABLE</button>
+<button class="md:hidden text-on-background">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
+<!-- Header Section -->
+<header class="text-center mb-section-gap fade-in-up visible">
+<h1 class="font-display-lg-mobile md:font-display-lg text-on-background mb-6">Our Creations</h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Indulge in our carefully curated selection of artisanal pastries, rich cakes, and delicate desserts. Each piece is crafted with passion and the finest ingredients.
+            </p>
+</header>
+<!-- Menu Section 1: The Signature Red Velvet -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap items-center fade-in-up visible">
+<div class="md:col-span-6 order-2 md:order-1 relative h-[500px]">
+<div class="absolute inset-0 organic-mask-1 bg-surface-container-low overflow-hidden">
+<img alt="" class="scroll-color-img w-full h-full object-cover opacity-80 hover:opacity-100 transition-all duration-700 object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ4Y9Bwb5XjHsvupQ11E3I-X2trL8XHSGwi7iXTk6z0XQMGZi5mZhZhQe3U27SivrOU2zvt6vWz4d9Mow92jmEXMYTFISdBiMzpEiT9DcSzkXOA1WYA6N6B-yQGzVrUr7ijW85mPJGppOWdAG4EqHHqZsdzXYhCM0ysOajTua0ZJfdRku_pMHGHHbGqZZE9jPypuq8teX1fSIjiUdP3X8l0_d7gQwSW--n0IIQ1FJZvTSAQDJypiBXgEaOJgI7ZwJR9Oo"/>
+</div>
+</div>
+<div class="md:col-span-5 md:col-start-8 order-1 md:order-2 space-y-6">
+<h2 class="font-headline-md text-primary">Signature Red Velvet</h2>
+<p class="font-body-lg text-on-surface-variant">
+                    Layers of moist crimson cake enveloped in a velvety cream cheese frosting. A classic reimagined with subtle notes of cocoa and vanilla.
+                </p>
+<div class="text-headline-sm font-headline-sm text-tertiary">
+                    $12
+                </div>
+<button class="border border-outline px-8 py-4 font-label-caps text-on-surface hover:bg-surface-container-highest transition-colors">
+                    ORDER NOW
+                </button>
+</div>
+</section>
+<!-- Menu Section 2: Dark Chocolate Decadence -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap items-center fade-in-up visible">
+<div class="md:col-span-5 md:col-start-1 space-y-6 text-right">
+<h2 class="font-headline-md text-primary">Dark Chocolate Decadence</h2>
+<p class="font-body-lg text-on-surface-variant">
+                    An intense journey for the chocolate purist. Flourless dark chocolate sponge paired with a silky ganache and a hint of sea salt.
+                </p>
+<div class="text-headline-sm font-headline-sm text-tertiary">
+                    $14
+                </div>
+<button class="border border-outline px-8 py-4 font-label-caps text-on-surface hover:bg-surface-container-highest transition-colors">
+                    ORDER NOW
+                </button>
+</div>
+<div class="md:col-span-6 md:col-start-7 relative h-[500px]">
+<div class="absolute inset-0 organic-mask-2 bg-surface-container-low overflow-hidden">
+<img alt="" class="scroll-color-img w-full h-full object-cover opacity-80 hover:opacity-100 transition-all duration-700 scale-110 object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApQ5JFvE6BAUpIlniHkP58h12762G3HrH9ldWcHqdtmhbXolfqTA3SSRohVFrbcNFxj2Mr9yye8gbxFLAae6angWUmK9T-0HZEDio8mMmy-qKwUMPbB_6-bqJou53nwvIY5bw0x6tGE8W-S7AYCneGLLAuzX9NiGAhfSAG1Ip_uX7AxMdVjXuiGYv42iWXzm_DS1jMsfzNHuT_ab-VwTciLPkHzWXhsOC8Y6KUIiFtZYz5kfgnLcI3LRJ5Bxye3grUke4"/>
+</div>
+</div>
+</section>
+<!-- Menu Section 3: The Artisan Cheesecakes -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap items-center fade-in-up visible">
+<div class="md:col-span-6 order-2 md:order-1 relative h-[500px]">
+<div class="absolute inset-0 organic-mask-1 bg-surface-container-low overflow-hidden rotate-180">
+<img alt="" class="scroll-color-img w-full h-full object-cover opacity-80 hover:opacity-100 transition-all duration-700 -rotate-180 object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtCQ29dJYRoorGvo2_2FMGAuIXlA8sUeY79efkw8CKjnNfWu6YUdKi7IVNrOiuTc9xGEzR-RxXpfwjtH1jp5shSuXfiO08gbfpCIg27ulastSTraEWahHsfjNnC7k79qTowXd7QVMIK8vzsImJn-xrQbjCJN_qbIvN4rJ-WQ108isiw0FHKwUU0mjHNPjBvB921UKvI3IGNTFfYdEjbZlziHonqnwqmHGQ-FqxthUVdhmSQuAlUNglNOvG-xRFYAHriiw"/>
+</div>
+</div>
+<div class="md:col-span-5 md:col-start-8 order-1 md:order-2 space-y-6">
+<h2 class="font-headline-md text-primary">Artisan Cheesecakes</h2>
+<p class="font-body-lg text-on-surface-variant">
+                    Creamy, rich, and perfectly balanced. From classic New York style to seasonal berry compote creations, baked on a buttery graham crust.
+                </p>
+<div class="text-headline-sm font-headline-sm text-tertiary">
+                    $11
+                </div>
+<button class="border border-outline px-8 py-4 font-label-caps text-on-surface hover:bg-surface-container-highest transition-colors">
+                    ORDER NOW
+                </button>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap items-center fade-in-up visible">
+<div class="md:col-span-5 md:col-start-1 space-y-6 text-right">
+<h2 class="font-headline-md text-primary">Artisanal Fire-Baked Flatbread</h2>
+<p class="font-body-lg text-on-surface-variant">
+                    Spiced paneer, charred jalapeños, and an aged cheese blend on a hand-stretched crisp base.
+                </p>
+<div class="text-headline-sm font-headline-sm text-tertiary">
+                    $22
+                </div>
+<button class="border border-outline px-8 py-4 font-label-caps text-on-surface hover:bg-surface-container-highest transition-colors">
+                    ORDER NOW
+                </button>
+</div>
+<div class="md:col-span-6 md:col-start-7 relative h-[500px]">
+<div class="absolute inset-0 organic-mask-2 bg-surface-container-low overflow-hidden">
+<img alt="Artisanal Fire-Baked Flatbread" class="scroll-color-img w-full h-full object-cover object-center opacity-80 hover:opacity-100 transition-all duration-700 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDWAyWpe9_RhoaMG1eRRoSmTrgsTBmIZ5LSbsplLa27T0BUp4tusgt2hiqj4NutaraaLENPdo99m8yaUH3ochm-Gxe6zfuY4StzRqqJALL-ueXiqzJzEKHvWSgWuBRPIel0n0tGWTdpIz-2emyuzdElFiEKrk9hNAdWiVT0wIP-ms1owO828sG2RM1OcdfYYbf8gvERkE4E_GYUT4rZDMfvZp4NA1R37vgPt4ECH9wKKUpA0JFTcC2PSlDfiVcPOk-gJE"/>
+</div>
+</div>
+</section><section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap items-center fade-in-up visible">
+<div class="md:col-span-6 order-2 md:order-1 relative h-[500px]">
+<div class="absolute inset-0 organic-mask-1 bg-surface-container-low overflow-hidden">
+<img alt="Classic Red Velvet Sundae" class="scroll-color-img w-full h-full object-cover object-center opacity-80 hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDKycyCGDSLhqYsEjbkxYg9U5XqPrLcc4BHZsUQs1czvKGHxNyQzYhnTlzfFU5ldQ8z83mUeHXpDKahDnRrcGZjr2BKhH0laKByXkes0HxyTPIMwp4BionY67UInGff30acVXjXjoQ0l_LFLqFkRPEmBVDOin6UZqL3kwoe7WhZ5-zNVLXJeCY_DM_ku8W3eHdymH6FIHLl68MrJBKIVVPuyxcoMnS4teVT5Ktb6F-jvcNCe1SgtQjwK6O2IhGSBrN76M"/>
+</div>
+</div>
+<div class="md:col-span-5 md:col-start-8 order-1 md:order-2 space-y-6">
+<h2 class="font-headline-md text-primary">Classic Red Velvet Sundae</h2>
+<p class="font-body-lg text-on-surface-variant">
+                    Vanilla bean ice cream, crushed velvet sponge, and a swirl of classic cream cheese frosting.
+                </p>
+<div class="text-headline-sm font-headline-sm text-tertiary">
+                    $10
+                </div>
+<button class="border border-outline px-8 py-4 font-label-caps text-on-surface hover:bg-surface-container-highest transition-colors">
+                    ORDER NOW
+                </button>
+</div>
+</section><section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap items-center fade-in-up visible">
+<div class="md:col-span-5 md:col-start-1 space-y-6 text-right">
+<h2 class="font-headline-md text-primary">Wild Blueberry Cheesecake</h2>
+<p class="font-body-lg text-on-surface-variant">
+                    A decadent, dense New York style cheesecake resting on a buttery graham cracker crust, finished with a tart wild blueberry compote.
+                </p>
+<div class="text-headline-sm font-headline-sm text-tertiary">
+                    $11
+                </div>
+<button class="border border-outline px-8 py-4 font-label-caps text-on-surface hover:bg-surface-container-highest transition-colors">
+                    ORDER NOW
+                </button>
+</div>
+<div class="md:col-span-6 md:col-start-7 relative h-[500px]">
+<div class="absolute inset-0 organic-mask-2 bg-surface-container-low overflow-hidden">
+<img alt="Wild Blueberry Cheesecake" class="scroll-color-img w-full h-full object-cover object-center opacity-80 hover:opacity-100 transition-all duration-700 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO9mQXphRAj5tsfbSjhhFq8MMfsrWML8USmPedFBKLDFmxtC31hrebg7bv0foHmVXxLvvYgWgBD6mN7DJYayR5B1-jNXNvwu_z4o6A49zVBU4oEVkivSci1W2cEt-FAoig1dnJriKEZ97lSzZCAwcYvlyRki6lgF_ZQSLH2DY0L3PI9Gt4iwNxnZ7tQGmNzXFfNPeav4_7JO-lm9KlRaIRk_dzJrKc3fgHtKL5UyfhL7je7IiuaaY7JtQy3xH5vNI6XKY"/>
+</div>
+</div>
+</section><section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap items-center fade-in-up visible">
+<div class="md:col-span-6 order-2 md:order-1 relative h-[500px]">
+<div class="absolute inset-0 organic-mask-1 bg-surface-container-low overflow-hidden rotate-180">
+<img alt="Signature Red Velvet Cupcake" class="scroll-color-img w-full h-full object-cover object-center opacity-80 hover:opacity-100 transition-all duration-700 -rotate-180" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiVrSA-15ZgHOjo-FSVJ-w2MUFEDeHjwJkiYpMGawTGsk69uPFcUL-opupc5h1i6idfAi324w6VGbFobx9kVRIOmHhmJ-AAx2o2_n-LipV6ZbbOKKSwjJZA9JpbVEyciWhOZ7X1cKZ2yFu-a10_s9no_vz9j9MZdCmpmSHdGnBwHJMWRAFbFD_0RRuX9FoB6ovFUbKosdcyGwNYf44_rLVdCcO3aseIwf5Ua0JwIEvpGiI81wBo6L586les40BSqoqxAE"/>
+</div>
+</div>
+<div class="md:col-span-5 md:col-start-8 order-1 md:order-2 space-y-6">
+<h2 class="font-headline-md text-primary">Signature Red Velvet Cupcake</h2>
+<p class="font-body-lg text-on-surface-variant">
+                    Our iconic red velvet sponge, exceptionally moist, topped with a generous swirl of classic cream cheese frosting and a dusting of cake crumb.
+                </p>
+<div class="text-headline-sm font-headline-sm text-tertiary">
+                    $4.50
+                </div>
+<button class="border border-outline px-8 py-4 font-label-caps text-on-surface hover:bg-surface-container-highest transition-colors">
+                    ORDER NOW
+                </button>
+</div>
+</section></main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-lowest w-full py-section-gap border-t border-white/5 mt-auto relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop max-w-container-max mx-auto items-center">
+<div class="md:col-span-4 space-y-4 text-center md:text-left">
+<div class="font-display-lg text-headline-md text-on-surface mb-2">GLEN'S BAKEHOUSE</div>
+<p class="font-body-md text-tertiary">
+                    © 2024 GLEN'S BAKEHOUSE. CRAFTED FOR DISCERNING PALATES.
+                </p>
+</div>
+<div class="md:col-span-8 flex flex-wrap justify-center md:justify-end gap-6 md:gap-8">
+<a class="font-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">OUR STORY</a>
+<a class="font-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">LOCATIONS</a>
+<a class="font-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">CAREERS</a>
+<a class="font-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">PRIVACY POLICY</a>
+<a class="font-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">INSTAGRAM</a>
+<a class="font-body-md text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#">FACEBOOK</a>
+</div>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+
+            const imgObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('grayscale');
+                    } else {
+                        entry.target.classList.add('grayscale');
+                    }
+                });
+            }, { 
+                rootMargin: '-30% 0px -30% 0px'
+            });
+
+            document.querySelectorAll('.scroll-color-img').forEach(img => {
+                imgObserver.observe(img);
+            });
+        });
+    </script>
+</body></html>
